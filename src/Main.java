@@ -51,6 +51,18 @@ public class Main {
     }
 
     private static void playGame (Playground pg) {
-
+        int status = 0;
+        while (status != -1) {
+            System.out.print(String.format("%s's turn, enter dash dimensions (x,y): ", pg.getPlayerToRollName()));
+            status = pg.play();
+            switch (status) {
+                case 1:
+                    System.out.println("Invalid dash, please choose another one...");
+                    break;
+//                case 2:
+//                    System.out.println("Occupied some squares!");
+//                    break;
+            }
+        }
     }
 }
