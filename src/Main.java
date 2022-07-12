@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     private static final Scanner sc = new Scanner(System.in);
-    private List<Player> players;
-    private Playground pg;
+    private static List<Player> players;
+    private static Playground pg;
 
     public static void main(String[] args) {
         initializeGame();
@@ -23,7 +24,14 @@ public class Main {
             endGame("Invalid playground dimenstions", true);
         }
 
-        return null;
+        // create players
+        players = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            players.add(new Player(String.format("Player%s", i + 1)));
+        }
+
+        // create playground
+        return new Playground(m, k, players);
     }
 
     private static void endGame(String reason, boolean isError) {

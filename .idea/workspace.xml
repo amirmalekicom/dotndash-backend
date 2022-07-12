@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9477484b-f40e-4fd4-aacb-82bd930d5ff3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dotndash-backend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="9477484b-f40e-4fd4-aacb-82bd930d5ff3" name="Changes" comment="created Main and got inputs">
       <change afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Playground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +48,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1657618236191</updated>
-      <workItem from="1657618238438" duration="1292000" />
+      <workItem from="1657618238438" duration="2159000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1657619563489</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657619563489</updated>
+    </task>
+    <task id="LOCAL-00002" summary="created Main and got inputs">
+      <created>1657620187175</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657620187175</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="created Main and got inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="created Main and got inputs" />
   </component>
 </project>
