@@ -50,7 +50,7 @@ public class Main {
         }
     }
 
-    private static void playGame (Playground pg) {
+    private static void playGame(Playground pg) {
         pg.reset();
         int status = 0;
         while (status != -1) {
@@ -64,8 +64,11 @@ public class Main {
                     System.out.println("Dash already occupied, please choose another one...");
                     break;
                 case 3:
+                case -1:
                     System.out.println("Occupied some squares!");
+                    break;
             }
         }
+        System.out.println(pg.announceResults());
     }
 }
