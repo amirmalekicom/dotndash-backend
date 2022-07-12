@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class Main {
     private static final Scanner sc = new Scanner(System.in);
-    private static List<Player> players;
-    private static Playground pg;
 
     public static void main(String[] args) {
-        initializeGame();
+        Playground playground = initializeGame();
+        while (startGame()) {
+            playGame(playground);
+        }
+        endGame("Have a good day!", false);
     }
 
     private static Playground initializeGame() {
@@ -21,11 +23,11 @@ public class Main {
         System.out.print("Enter playground dimensions (m*k): ");
         int m = sc.nextInt(), k = sc.nextInt();
         if (m < 1 || k < 1) {
-            endGame("Invalid playground dimenstions", true);
+            endGame("Invalid playground dimensions", true);
         }
 
         // create players
-        players = new ArrayList<>(n);
+        List<Player> players = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
             players.add(new Player(String.format("Player%s", i + 1)));
         }
@@ -37,5 +39,18 @@ public class Main {
     private static void endGame(String reason, boolean isError) {
         System.out.printf("%s, the game will stop now%n", reason);
         System.exit(isError ? -1 : 0);
+    }
+
+    private static boolean startGame() {
+        System.out.print("Start a new game (y/n)? ");
+        while (true) {
+            String reply = sc.next();
+            if (reply.equalsIgnoreCase("y")) return true;
+            if (reply.equalsIgnoreCase("n")) return false;
+        }
+    }
+
+    private static void playGame (Playground pg) {
+
     }
 }
