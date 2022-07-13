@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Playground {
     private int width, height;
-    private List<Player> players;
+    private final List<Player> players;
     private int playerToRoll;
     private boolean[][] horizontalDashBoard;
     private boolean[][] verticalDashBoard;
@@ -57,7 +57,7 @@ public class Playground {
                 squareBoard[i][j] = -1;
             }
         }
-        playerToRoll = 0;  // TODO: randomize turns
+        playerToRoll = ThreadLocalRandom.current().nextInt(0, players.size());
     }
 
     public int checkSquares() {
@@ -138,13 +138,13 @@ public class Playground {
             }
             for (int i = 0; i < width; i++) {
                 if (j == -1) {
-                    if (horizontalDashBoard[i][j+1])
+                    if (horizontalDashBoard[i][j + 1])
                         board.append("_");
                     else
                         board.append(" ");
                     board.append(".");
                 } else {
-                    if (horizontalDashBoard[i][j+1]) {
+                    if (horizontalDashBoard[i][j + 1]) {
                         if (squareBoard[i][j] == -1)
                             board.append("_");
                         else
@@ -152,7 +152,7 @@ public class Playground {
                     } else {
                         board.append(" ");
                     }
-                    if (verticalDashBoard[i+1][j])
+                    if (verticalDashBoard[i + 1][j])
                         board.append("!");
                     else
                         board.append(".");
