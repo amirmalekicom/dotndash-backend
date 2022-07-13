@@ -7,8 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         Playground playground = initializeGame();
-        while (startGame()) {
+        while (startGame(playground)) {
             playGame(playground);
+            System.out.println(playground.getStats());
         }
         endGame("Have a good day!", false);
     }
@@ -20,11 +21,6 @@ public class Main {
         if (n < 2) {
             endGame("Invalid number of players", true);
         }
-        System.out.print("Enter playground dimensions (m*k): ");
-        int m = sc.nextInt(), k = sc.nextInt();
-        if (m < 1 || k < 1) {
-            endGame("Invalid playground dimensions", true);
-        }
 
         // create players
         List<Player> players = new ArrayList<>(n);
@@ -33,7 +29,7 @@ public class Main {
         }
 
         // create playground
-        return new Playground(m, k, players);
+        return new Playground(players);
     }
 
     private static void endGame(String reason, boolean isError) {
@@ -41,21 +37,31 @@ public class Main {
         System.exit(isError ? -1 : 0);
     }
 
-    private static boolean startGame() {
+    private static boolean startGame(Playground pg) {
         System.out.print("Start a new game (y/n)? ");
         while (true) {
             String reply = sc.next();
-            if (reply.equalsIgnoreCase("y")) return true;
+            if (reply.equalsIgnoreCase("y")) break;
             if (reply.equalsIgnoreCase("n")) return false;
         }
+
+        System.out.print("Enter playground square dimensions (m*k): ");
+        int m = sc.nextInt(), k = sc.nextInt();
+        if (m < 1 || k < 1) {
+            endGame("Invalid playground dimensions", true);
+        }
+
+        pg.setDimensions(m, k);
+        return true;
     }
 
     private static void playGame(Playground pg) {
         pg.reset();
+        System.out.println(pg.getVisualRepresentation());
         int status = 0;
         while (status != -1) {
-            System.out.printf("%s's turn, enter dash dimensions (x,y): ", pg.getPlayerToRollName());
-            status = pg.play(sc.nextInt(), sc.nextInt());
+            System.out.printf("%s's turn, enter dash dimensions (o,x,y): ", pg.getPlayerToRollName());
+            status = pg.play(sc.next(), sc.nextInt(), sc.nextInt());
             switch (status) {
                 case 1:
                     System.out.println("Invalid dash, please choose another one...");
@@ -68,7 +74,8 @@ public class Main {
                     System.out.println("Occupied some squares!");
                     break;
             }
+            System.out.println(pg.getVisualRepresentation());
         }
-        System.out.println(pg.announceResults());
+        System.out.println(pg.calculateResults());
     }
 }
