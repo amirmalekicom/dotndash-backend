@@ -63,16 +63,9 @@ public class Main {
             System.out.printf("%s's turn, enter dash dimensions (o,x,y): ", pg.getPlayerToRollName());
             status = pg.play(sc.next(), sc.nextInt(), sc.nextInt());
             switch (status) {
-                case 1:
-                    System.out.println("Invalid dash, please choose another one...");
-                    break;
-                case 2:
-                    System.out.println("Dash already occupied, please choose another one...");
-                    break;
-                case 3:
-                case -1:
-                    System.out.println("Occupied some squares!");
-                    break;
+                case 1 -> System.out.println("Invalid dash, please choose another one...");
+                case 2 -> System.out.println("Dash already occupied, please choose another one...");
+                case 3, -1 -> System.out.println("Occupied some squares!");
             }
             System.out.println(pg.getVisualRepresentation());
         }
